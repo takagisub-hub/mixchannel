@@ -1,1 +1,392 @@
+<!DOCTYPE html>
 
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>ミクチャ配信攻略マニュアル｜POPかわいい版 v6</title>
+<style>
+
+:root {
+  --bg:#fff7fb;
+  --card:#ffffff;
+  --ink:#403343;
+  --text:#332b35;
+  --muted:#8a7b89;
+  --line:rgba(135,94,119,.16);
+  --pink:#ff7ab8;
+  --pink2:#ffe3f1;
+  --blue:#55b8ff;
+  --blue2:#e7f6ff;
+  --mint:#63d7c2;
+  --mint2:#e8fff9;
+  --yellow:#ffd86b;
+  --yellow2:#fff6d6;
+  --purple:#a78bfa;
+  --red:#ff6b6b;
+  --red-bg:#fff1f1;
+  --shadow:0 14px 34px rgba(255,122,184,.16);
+  --radius:26px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+  color:var(--text);
+  line-height:1.72;
+  background:
+    radial-gradient(circle at 12% 4%, rgba(255,216,107,.55) 0 95px, transparent 96px),
+    radial-gradient(circle at 92% 8%, rgba(85,184,255,.32) 0 120px, transparent 121px),
+    radial-gradient(circle at 90% 44%, rgba(255,122,184,.22) 0 150px, transparent 151px),
+    linear-gradient(180deg,#fff7fb 0,#fffdf5 42%,#f2fbff 100%);
+}
+body:before{
+  content:"";
+  position:fixed; inset:0; pointer-events:none; opacity:.38;
+  background-image:
+    radial-gradient(circle, rgba(255,122,184,.42) 1.4px, transparent 1.6px),
+    radial-gradient(circle, rgba(85,184,255,.35) 1.2px, transparent 1.5px);
+  background-size:28px 28px, 40px 40px;
+  background-position:0 0, 12px 18px;
+}
+.app{max-width:980px;margin:0 auto;padding:20px 14px 80px;position:relative;z-index:1}
+.hero{
+  color:var(--ink);
+  padding:18px 4px 24px;
+  border-radius:0 0 34px 34px;
+  position:relative;
+}
+.kicker{
+  display:inline-flex;align-items:center;gap:6px;
+  border:2px solid rgba(255,122,184,.26);
+  background:rgba(255,255,255,.75);
+  box-shadow:0 8px 22px rgba(255,122,184,.12);
+  border-radius:999px;
+  padding:7px 12px;
+  font-size:12px;
+  color:#b04c7e;
+  font-weight:900;
+}
+h1{
+  font-size:clamp(32px,8.5vw,62px);
+  line-height:1.03;
+  letter-spacing:-.045em;
+  margin:18px 0 10px;
+  color:#3c3140;
+  text-shadow:0 3px 0 rgba(255,255,255,.95);
+}
+h1:after{content:" ᵕ̈♡";font-size:.46em;color:var(--pink);vertical-align:middle;white-space:nowrap}
+.hero p{margin:0;color:#7b6d7a;font-size:14px;font-weight:700;max-width:620px}
+.nav{
+  position:sticky;top:0;z-index:10;
+  margin:0 -14px 14px;
+  padding:10px 14px 14px;
+  display:flex;gap:8px;overflow-x:auto;
+  background:linear-gradient(180deg,rgba(255,247,251,.95),rgba(255,247,251,.72));
+  backdrop-filter:blur(12px);
+  scrollbar-width:none;
+}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  flex:0 0 auto;text-decoration:none;color:#5d4b5a;
+  background:rgba(255,255,255,.86);
+  border:2px solid rgba(255,122,184,.18);
+  border-radius:999px;
+  padding:9px 13px;
+  font-size:13px;font-weight:900;
+  box-shadow:0 8px 18px rgba(255,122,184,.10);
+}
+.nav a:nth-child(2n){border-color:rgba(85,184,255,.22);box-shadow:0 8px 18px rgba(85,184,255,.10)}
+.notice{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-bottom:12px}
+.notice h2{margin:0 0 6px;font-size:20px;letter-spacing:-.02em}
+.notice p{margin:0;color:var(--muted);font-size:14px}
+.section-toggle{
+  background:rgba(255,255,255,.88);
+  border:2px solid rgba(255,122,184,.15);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  margin:14px 0;
+  overflow:hidden;
+  scroll-margin-top:86px;
+  backdrop-filter:blur(10px);
+}
+.section-toggle:nth-of-type(3n){border-color:rgba(85,184,255,.18);box-shadow:0 14px 34px rgba(85,184,255,.14)}
+.section-toggle:nth-of-type(3n+1){border-color:rgba(99,215,194,.18);box-shadow:0 14px 34px rgba(99,215,194,.12)}
+.section-toggle>summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;
+  padding:18px;min-height:74px;
+  background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(255,227,241,.52));
+}
+.section-toggle:nth-of-type(3n)>summary{background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(231,246,255,.75))}
+.section-toggle:nth-of-type(3n+1)>summary{background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(232,255,249,.75))}
+.section-toggle>summary::-webkit-details-marker{display:none}
+.summary-icon{
+  width:46px;height:46px;border-radius:18px;
+  background:linear-gradient(135deg,#fff,#ffe3f1);
+  display:grid;place-items:center;font-size:24px;flex:0 0 auto;
+  box-shadow:inset 0 -3px 0 rgba(255,122,184,.18),0 8px 18px rgba(255,122,184,.16);
+}
+.section-toggle>summary b{display:block;font-size:18px;line-height:1.25;letter-spacing:-.02em;color:#413342}
+.section-toggle>summary small{display:block;color:var(--muted);font-size:12px;margin-top:3px;font-weight:800}
+.section-toggle>summary:after{
+  content:"Tap ＋";
+  margin-left:auto;
+  min-width:62px;height:32px;border-radius:999px;
+  background:linear-gradient(135deg,var(--pink),#ff9fca);
+  color:#fff;display:grid;place-items:center;font-weight:1000;font-size:12px;
+  box-shadow:0 8px 18px rgba(255,122,184,.28);
+}
+.section-toggle[open]>summary:after{content:"Close −";background:linear-gradient(135deg,#8b7cf6,#b7a7ff)}
+.section-content{padding:0 14px 16px}
+.helper{
+  background:rgba(255,255,255,.82);
+  border:2px dashed rgba(255,122,184,.20);
+  border-radius:18px;
+  padding:12px;
+  margin:0 0 12px;
+  color:#7e6f7d;
+  font-size:13px;
+  font-weight:700;
+}
+.flow-list{display:grid;gap:10px}
+.phase-title{display:flex;align-items:center;gap:10px;margin:16px 2px 6px;color:#fff}
+.phase-title span{
+  display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,#ff7ab8,#a78bfa);
+  border-radius:999px;
+  padding:8px 13px;
+  font-size:13px;font-weight:1000;
+  box-shadow:0 8px 18px rgba(167,139,250,.20);
+}
+.phase-title span:before{content:"♡";font-weight:1000}
+.decision{
+  border:2px solid rgba(85,184,255,.16);
+  border-radius:20px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 8px 20px rgba(85,184,255,.09);
+}
+.decision>summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+  padding:13px;
+  background:linear-gradient(135deg,#e7f6ff,#f7fcff);
+}
+.decision:nth-of-type(2n)>summary{background:linear-gradient(135deg,#fff6d6,#fffdf3)}
+.decision>summary::-webkit-details-marker{display:none}
+.decision .num{
+  width:30px;height:30px;border-radius:12px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--blue),#8bd3ff);
+  color:#fff;font-weight:1000;font-size:13px;flex:0 0 auto;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.09);
+}
+.decision:nth-of-type(2n) .num{background:linear-gradient(135deg,#ffd86b,#ffb86b)}
+.decision .q{font-weight:1000;font-size:15px;line-height:1.4;color:#3c3440}
+.decision>summary:after{
+  content:"みる";
+  margin-left:auto;
+  color:#fff;background:var(--pink);border-radius:999px;
+  padding:5px 9px;font-size:12px;font-weight:1000;white-space:nowrap;
+}
+.decision[open]>summary:after{content:"OK";background:var(--mint)}
+.decision-body{padding:12px;display:grid;gap:8px;background:#fff}
+.yes-line,.no-line{display:grid;grid-template-columns:62px 1fr;gap:10px;align-items:start;border-radius:16px;padding:10px;font-size:14px;font-weight:700}
+.yes-line{background:var(--mint2);border:1px solid rgba(99,215,194,.25)}
+.yes-line b{color:#0f9b85}
+.no-line{background:var(--red-bg);border:1px solid rgba(255,107,107,.20)}
+.no-line b{color:var(--red)}
+.mini-toggle{
+  border:2px solid rgba(255,122,184,.14);
+  border-radius:20px;
+  background:#fff;
+  margin:10px 0;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(255,122,184,.08);
+}
+.mini-toggle:nth-child(2n){border-color:rgba(85,184,255,.16);box-shadow:0 8px 20px rgba(85,184,255,.08)}
+.mini-toggle>summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+  padding:14px;
+  background:linear-gradient(135deg,#fff,#fff4fa);
+}
+.mini-toggle:nth-child(2n)>summary{background:linear-gradient(135deg,#fff,#f0fbff)}
+.mini-toggle>summary::-webkit-details-marker{display:none}
+.mini-toggle>summary:after{
+  content:"＋";margin-left:auto;width:28px;height:28px;border-radius:999px;
+  background:linear-gradient(135deg,var(--pink),#ff9fca);color:#fff;display:grid;place-items:center;font-weight:1000;
+}
+.mini-toggle[open]>summary:after{content:"−";background:linear-gradient(135deg,var(--mint),#8eead8)}
+.step-badge{background:linear-gradient(135deg,var(--pink),#ff9fca);color:#fff;border-radius:999px;padding:5px 10px;font-weight:1000;font-size:12px;white-space:nowrap;box-shadow:0 5px 14px rgba(255,122,184,.22)}
+.mini-body{padding:14px;background:#fff}
+.mini-body p{margin:0;color:#413342;font-weight:900}
+.image-slot{margin-top:12px;border:2px dashed rgba(255,122,184,.25);border-radius:18px;padding:14px;text-align:center;color:var(--muted);background:#fffafd;font-weight:800}
+.image-slot b{display:block;color:#b04c7e}
+.row{display:grid;grid-template-columns:92px 1fr;gap:10px;border-top:1px solid var(--line);padding:10px 0;font-size:14px}
+.row:first-child{border-top:0;padding-top:0}
+.row b{color:#b04c7e}
+.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:20px;font-weight:800}
+@media(min-width:760px){.app{padding-left:28px;padding-right:28px}.section-content{padding:0 20px 20px}.flow-list{grid-template-columns:1fr 1fr}.phase-title{grid-column:1/-1}.decision.wide{grid-column:1/-1}}
+@media print{body{background:#fff}.nav{display:none}.section-toggle{box-shadow:none;break-inside:avoid}.section-toggle:not([open]) .section-content{display:block}.section-toggle>summary:after,.decision>summary:after,.mini-toggle>summary:after{display:none}}
+
+
+/* v4: route-map flowchart expression */
+.route-map{position:relative;display:grid;gap:12px;margin-top:8px;padding:4px 0 4px 0}
+.route-phase{display:inline-flex;align-items:center;gap:7px;width:max-content;max-width:100%;margin:14px 0 2px;padding:8px 13px;border-radius:999px;background:linear-gradient(135deg,#ff7ab8,#a78bfa);color:#fff;font-weight:1000;font-size:13px;box-shadow:0 8px 18px rgba(167,139,250,.20)}
+.route-phase .phase-icon{width:18px;height:18px;border-radius:999px;background:rgba(255,255,255,.25);display:grid;place-items:center;font-size:12px}
+.route-step{position:relative;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start}
+.route-step:before{content:"";position:absolute;left:16px;top:34px;bottom:-14px;width:3px;border-radius:999px;background:linear-gradient(180deg,rgba(255,122,184,.32),rgba(85,184,255,.20))}
+.route-step:last-child:before{display:none}
+.route-dot{position:relative;z-index:1;width:34px;height:34px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#55b8ff,#8bd3ff);color:#fff;font-size:14px;font-weight:1000;box-shadow:0 8px 18px rgba(85,184,255,.22),inset 0 -2px 0 rgba(0,0,0,.08)}
+.route-step:nth-of-type(2n) .route-dot{background:linear-gradient(135deg,#ffd86b,#ffb86b);box-shadow:0 8px 18px rgba(255,184,107,.22),inset 0 -2px 0 rgba(0,0,0,.08)}
+.route-card{background:#fff;border:2px solid rgba(85,184,255,.16);border-radius:22px;box-shadow:0 10px 22px rgba(85,184,255,.10);overflow:hidden}
+.route-step:nth-of-type(2n) .route-card{border-color:rgba(255,216,107,.28);box-shadow:0 10px 22px rgba(255,216,107,.12)}
+.route-check{padding:13px;background:linear-gradient(135deg,#e7f6ff,#ffffff)}
+.route-step:nth-of-type(2n) .route-check{background:linear-gradient(135deg,#fff6d6,#ffffff)}
+.route-check span{display:inline-flex;margin-bottom:6px;padding:4px 8px;border-radius:999px;background:rgba(255,122,184,.13);color:#b04c7e;font-size:11px;font-weight:1000;letter-spacing:.05em}
+.route-check h3{margin:0;font-size:15.5px;line-height:1.45;color:#3c3440;letter-spacing:-.01em}
+.route-branches{display:grid;gap:8px;padding:11px;background:#fff}
+.branch{border-radius:16px;font-size:14px;font-weight:800}
+.branch-yes{display:grid;grid-template-columns:64px 1fr;gap:10px;align-items:center;padding:10px;background:var(--mint2);border:1px solid rgba(99,215,194,.25)}
+.branch-yes b{color:#0f9b85}
+.branch-no{background:var(--red-bg);border:1px solid rgba(255,107,107,.20);overflow:hidden}
+.branch-no summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;padding:10px}
+.branch-no summary::-webkit-details-marker{display:none}
+.branch-no summary:after{content:"＋";width:24px;height:24px;border-radius:999px;display:grid;place-items:center;background:#ff6b6b;color:#fff;font-weight:1000;font-size:14px}
+.branch-no[open] summary:after{content:"−"}
+.branch-no b{color:#ff6b6b}
+.branch-no p{margin:0;padding:0 10px 12px 84px;color:#5d4b4b;font-weight:800;line-height:1.65}
+@media(min-width:760px){.route-map{grid-template-columns:1fr 1fr;gap:14px 16px}.route-phase{grid-column:1/-1}.route-step:before{display:none}.route-step{grid-template-columns:38px 1fr}.route-dot{width:38px;height:38px;border-radius:16px}.route-card{min-height:100%}}
+
+/* v6: all event images, no visible image titles */
+.event-image-strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:10px 2px 4px;margin-top:12px;scrollbar-width:none}
+.event-image-strip::-webkit-scrollbar{display:none}
+.event-img-card{flex:0 0 92%;margin:0;border-radius:18px;overflow:hidden;background:#fff;border:2px solid rgba(255,122,184,.16);box-shadow:0 9px 20px rgba(255,122,184,.13);scroll-snap-align:center}
+.event-img-card img{display:block;width:100%;height:auto;background:#fff}
+@media(min-width:760px){.event-image-strip{display:grid;grid-template-columns:1fr 1fr;overflow:visible}.event-img-card{flex:auto;scroll-snap-align:none}}
+</style>
+</head>
+<body>
+<main class="app">
+<header class="hero" id="top">
+<div class="kicker">📝 株式会社KIRINZ/KIRINZ公認ライバー</div>
+<h1>ミクチャ配信<br/>攻略マニュアル</h1>
+<p>🌟ライバー向けPOPマニュアル🌟</p>
+</header>
+<nav class="nav"><a href="#overview">説明</a><a href="#flow50">50,000pt</a><a href="#flow150">150,000pt</a><a href="#flow500">500,000pt</a><a href="#event">イベント</a><a href="#waku">枠回り</a></nav>
+<details class="section-toggle" id="overview" open="">
+<summary><span class="summary-icon">🧭</span><span><b>説明</b><small>今の状態に合わせて必要な章を開く</small></span></summary>
+<div class="section-content">
+<p class="helper">「現在のpt帯のフローチャート」→「イベント選択」→「枠回り」の順に確認します。各カードはタップで開閉できます。しっかり読んで、ライブ配信ライフを楽しみましょう！</p>
+</div>
+</details>
+<details class="section-toggle" id="flow50">
+<summary><span class="summary-icon">📚</span><span><b>50,000pt到達フローチャート</b><small>Road to 50,000pt / 配信基礎の整備</small></span></summary>
+<div class="section-content">
+<p class="helper">青のCHECKで現在地を確認 →「はい」は次へ進む →「いいえ」は改善アクションを開く、という診断ルート型にしました。</p>
+<div class="route-map"><div class="route-phase"><span class="phase-icon">♡</span><span>背景説明</span></div><div class="route-step"><div class="route-dot">1</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>BGMを流している</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>配信画面左下からBGM機能を活用しよう</p></details></div></div></div><div class="route-step"><div class="route-dot">2</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>画面を2秒以上見つめて配信できている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>カメラ目線を意識しよう</p></details></div></div></div><div class="route-phase"><span class="phase-icon">♡</span><span>自分から話しかける</span></div><div class="route-step"><div class="route-dot">3</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>自己紹介ができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>①名前 ②趣味 ③参加イベを言ってみよう</p></details></div></div></div><div class="route-step"><div class="route-dot">4</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>自分から話しかけることができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>プロフィールを見て、①趣味 ②共通点 ③参加イベから質問してみよう</p></details></div></div></div><div class="route-phase"><span class="phase-icon">♡</span><span>アイテムリアクション</span></div><div class="route-step"><div class="route-dot">5</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>声のトーンを1トーン上げてリアクションできている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>来てくれたお礼を伝えて歓迎しよう</p></details></div></div></div><div class="route-step"><div class="route-dot">6</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>表情豊かに配信をしよう</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>喜怒哀楽のメリハリをつけよう。口角を上げよう</p></details></div></div></div><div class="route-step"><div class="route-dot">7</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>次回の配信告知をしてから配信を終えている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>ゴール達成！</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>配信終了前に、次回の配信予定・見どころを伝えてから終わろう</p></details></div></div></div></div>
+</div>
+</details>
+<details class="section-toggle" id="flow150">
+<summary><span class="summary-icon">📚</span><span><b>150,000pt到達フローチャート</b><small>Road to 150,000pt / 目標・枠づくり・ギフティング</small></span></summary>
+<div class="section-content">
+<p class="helper">青のCHECKで現在地を確認 →「はい」は次へ進む →「いいえ」は改善アクションを開く、という診断ルート型にしました。</p>
+<div class="route-map"><div class="route-phase"><span class="phase-icon">♡</span><span>目標設定ができる</span></div><div class="route-step"><div class="route-dot">1</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>目標ptの設定が出来ている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>配信タイトルに目標を記載しよう。配信内で目標ptを伝えよう</p></details></div></div></div><div class="route-phase"><span class="phase-icon">♡</span><span>繋がりを増やす / ファンを増やす</span></div><div class="route-step"><div class="route-dot">2</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>身振り手振りを交えながら話せている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>顔の近くに手を持ってこよう。アイテムが飛んだら瞬時にジェスチャーをして、小まめに手を叩いて喜びを表現しよう</p></details></div></div></div><div class="route-step"><div class="route-dot">3</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>1度来てくれたリスナーさんを覚えている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>メモを取ろう。配信後のスクショを振り返って「来てくれてありがとう」と挨拶しよう</p></details></div></div></div><div class="route-step"><div class="route-dot">4</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>枠に来てくれた他のリスナーを紹介してあげている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>来てくれたらプロフィールに飛んで紹介してあげよう</p></details></div></div></div><div class="route-phase"><span class="phase-icon">♡</span><span>枠づくりができる</span></div><div class="route-step"><div class="route-dot">5</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>自ら会話を広げることができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>「？」で終わる会話をしよう。トークテーマを決めよう</p></details></div></div></div><div class="route-step"><div class="route-dot">6</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>1対複数での会話ができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>他のリスナーさんにも同じ質問をしよう。配信内でゲームをしよう。深掘りされるトークをしよう</p></details></div></div></div><div class="route-step"><div class="route-dot">7</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>コメント渋滞せず捌くことができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>読む順に注意しよう。自分の話をしすぎないように気を付けよう。新規のライバーさんのコメントは必ず拾おう</p></details></div></div></div><div class="route-phase"><span class="phase-icon">♡</span><span>ギフティングしてもらうことができる</span></div><div class="route-step"><div class="route-dot">8</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>アイテムに応じてリアクションの使い分けができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>アイテムごとの価値を理解しよう。小：手を動かす／中：声や表情を大きくする・ウィンク／大：フレームアウトする</p></details></div></div></div><div class="route-step"><div class="route-dot">9</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>ガチファンを意識することができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>10KL以上は名前を記入して見えるように掲示しよう。ガチファンランクUPはコメントしてあげよう</p></details></div></div></div><div class="route-step"><div class="route-dot">10</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>プチ企画の実施ができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>ゴール達成！</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>ptを設定して企画を実施しよう。例：BINGO、投票、リトポ連動、ロシアン企画など</p></details></div></div></div></div>
+</div>
+</details>
+<details class="section-toggle" id="flow500">
+<summary><span class="summary-icon">📚</span><span><b>500,000pt到達フローチャート</b><small>Road to 500,000pt / 応援文化とギフティング設計</small></span></summary>
+<div class="section-content">
+<p class="helper">青のCHECKで現在地を確認 →「はい」は次へ進む →「いいえ」は改善アクションを開く、という診断ルート型にしました。</p>
+<div class="route-map"><div class="route-phase"><span class="phase-icon">♡</span><span>枠づくり</span></div><div class="route-step"><div class="route-dot">1</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>枠内が健全な状態で整い安定している</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>悪質なリスナーや悪意のあるコメントはスルーしよう</p></details></div></div></div><div class="route-step"><div class="route-dot">2</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>リスナー同士を繋げることができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>一番投げているリスナーには歓迎ムードを作ってもらおう。共通点でグルーピングしてあげよう</p></details></div></div></div><div class="route-step"><div class="route-dot">3</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>コアリスナーをグリップし枠に必要だと思わせることができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>リスナーに役割定義をしてあげよう。枠への必要性を伝えてあげよう</p></details></div></div></div><div class="route-step"><div class="route-dot">4</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>長期企画と短期企画の使い分けができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>月・イベント・デイリーで分けて企画を考案しよう。例：ガチファン達成、イベント順位、投票結果連動など</p></details></div></div></div><div class="route-phase"><span class="phase-icon">♡</span><span>アイテムを使うきっかけ / アイテムUP</span></div><div class="route-step"><div class="route-dot">5</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>アイテムを要求するタイミングが理解できている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>①倍率日 ②ゲリラ ③順位が変動した時 ④ランクが変動する時 ⑤最終日終了15分前など</p></details></div></div></div><div class="route-step"><div class="route-dot">6</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>嫌味のない要求ができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>こじつけて投げる意味を作ろう。キャラに合わせて要求しよう。例：明るい→手を組んで祈る／おとなしい→うれし泣き・感謝</p></details></div></div></div><div class="route-phase"><span class="phase-icon">♡</span><span>ギフティング</span></div><div class="route-step"><div class="route-dot">7</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>楽しみながらギフティングしてもらうことができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>次のチェックへ</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>投げてもらう時のテーマソングを設定しよう。〇〇ができたら投げるなどのゲームをしてみよう</p></details></div></div></div><div class="route-step"><div class="route-dot">8</div><div class="route-card"><div class="route-check"><span>CHECK</span><h3>リスナーやptで優劣をつけることができている</h3></div><div class="route-branches"><div class="branch branch-yes"><b>はい</b><span>ゴール達成！</span></div><details class="branch branch-no"><summary><b>いいえ</b><span>改善アクションを見る</span></summary><p>各アイテムごとにリアクションレベルを決めよう。アイテムに応じて雰囲気を変えよう。接し方に変化をつけよう。例：ファンネームを変える、テンションを変える、ニックネームで呼ぶ、言葉遣い・呼び方を変える</p></details></div></div></div></div>
+</div>
+</details>
+<details class="section-toggle" id="event">
+<summary><span class="summary-icon">💡</span><span><b>イベント選択のススメ</b><small>pt目安ごとの推奨イベント</small></span></summary>
+<div class="section-content">
+<p class="helper">イベント画像をpt帯別にすべて配置しました。画像名の表示はせず、バナーだけを見せる構成にしています。</p>
+<details class="mini-toggle">
+<summary><span class="step-badge">STEP1</span><strong>目安：50,000pt</strong></summary>
+<div class="mini-body">
+<p>レベル制限のあるイベント、一定ポイント達成でもらえるものイベ etc..</p>
+<div aria-label="イベント画像一覧" class="event-image-strip"><figure class="event-img-card"><img alt="ライバー×ライバー" loading="lazy" src="assets/event_01.png"/></figure><figure class="event-img-card"><img alt="ライバー応援企画" loading="lazy" src="assets/event_02.png"/></figure><figure class="event-img-card"><img alt="ミクチャ広報部員" loading="lazy" src="assets/event_03.png"/></figure><figure class="event-img-card"><img alt="FANTASTIC LIVER" loading="lazy" src="assets/event_04.png"/></figure></div>
+</div>
+</details>
+<details class="mini-toggle">
+<summary><span class="step-badge">STEP2</span><strong>目安：150,000pt</strong></summary>
+<div class="mini-body">
+<p>達成系、ゆるめのものイベ etc..</p>
+<div aria-label="イベント画像一覧" class="event-image-strip"><figure class="event-img-card"><img alt="コーヒー" loading="lazy" src="assets/event_05.png"/></figure><figure class="event-img-card"><img alt="夏っぽ" loading="lazy" src="assets/event_06.png"/></figure><figure class="event-img-card"><img alt="アイスケーキ" loading="lazy" src="assets/event_07.png"/></figure><figure class="event-img-card"><img alt="天使のわっか" loading="lazy" src="assets/event_08.png"/></figure></div>
+</div>
+</details>
+<details class="mini-toggle">
+<summary><span class="step-badge">STEP3</span><strong>目安：300,000pt</strong></summary>
+<div class="mini-body">
+<p>毎月の定常実施イベントの中でハイレベル、認知度が高くないPRモデルイベント etc…</p>
+<div aria-label="イベント画像一覧" class="event-image-strip"><figure class="event-img-card"><img alt="ミックマTシャツ屋さん" loading="lazy" src="assets/event_09.png"/></figure><figure class="event-img-card"><img alt="そうだ旅行に行こう" loading="lazy" src="assets/event_10.png"/></figure><figure class="event-img-card"><img alt="NR美電流フェイスマスク" loading="lazy" src="assets/event_11.png"/></figure><figure class="event-img-card"><img alt="月間かわいい決定戦" loading="lazy" src="assets/event_12.png"/></figure></div>
+</div>
+</details>
+<details class="mini-toggle">
+<summary><span class="step-badge">STEP4</span><strong>目安：500,000pt</strong></summary>
+<div class="mini-body">
+<p>有名ブランドのPRモデル、1日店長、楽曲提供 etc…</p>
+<div aria-label="イベント画像一覧" class="event-image-strip"><figure class="event-img-card"><img alt="Beauty Makeup Award" loading="lazy" src="assets/event_13.png"/></figure><figure class="event-img-card"><img alt="音楽でいきていく" loading="lazy" src="assets/event_14.png"/></figure><figure class="event-img-card"><img alt="rom&amp;nd PRモデルオーディション" loading="lazy" src="assets/event_15.png"/></figure><figure class="event-img-card"><img alt="1日店長オーディション" loading="lazy" src="assets/event_16.png"/></figure><figure class="event-img-card"><img alt="terrace" loading="lazy" src="assets/event_17.png"/></figure><figure class="event-img-card"><img alt="ADAN RESORT" loading="lazy" src="assets/event_18.png"/></figure></div>
+</div>
+</details>
+<details class="mini-toggle">
+<summary><span class="step-badge">STEP5</span><strong>目安：1,000,000pt以上</strong></summary>
+<div class="mini-body">
+<p>ランウェイ、誌面掲載 etc..</p>
+<div aria-label="イベント画像一覧" class="event-image-strip"><figure class="event-img-card"><img alt="カンコレ" loading="lazy" src="assets/event_19.png"/></figure><figure class="event-img-card"><img alt="TGC" loading="lazy" src="assets/event_20.png"/></figure><figure class="event-img-card"><img alt="サッポロコレクション" loading="lazy" src="assets/event_21.png"/></figure><figure class="event-img-card"><img alt="ミクチャスペシャルステージ" loading="lazy" src="assets/event_22.png"/></figure><figure class="event-img-card"><img alt="LARME" loading="lazy" src="assets/event_23.png"/></figure><figure class="event-img-card"><img alt="ar掲載オーディション" loading="lazy" src="assets/event_24.png"/></figure></div>
+</div>
+</details>
+</div>
+</details>
+<details class="section-toggle" id="waku">
+<summary><span class="summary-icon">👀</span><span><b>枠回り</b><small>他枠との関係構築とリスナー導線</small></span></summary>
+<div class="section-content">
+<details class="mini-toggle">
+<summary><strong>枠回りとは？</strong></summary>
+<div class="mini-body"><div class="row"><b>定義</b><span>他のライバーさんの配信を見に行くこと。</span></div><div class="row"><b>目的</b><span>他のライバーと友好的な関係を築く。ほかの枠のリスナーさんに自分を知ってもらい、自分の枠に来てもらう。</span></div><div class="row"><b>重要</b><span>良い印象を与えることが最も大事。</span></div></div>
+</details>
+<details class="mini-toggle">
+<summary><strong>枠回りのステップ</strong></summary>
+<div class="mini-body"><div class="row"><b>挨拶</b><span>「初見です、こんにちは！」「枠の皆さまお邪魔します✨」</span></div><div class="row"><b>コメントとバックコイン</b><span>共感するコメントや盛り上げるコメントを投稿。例：「○○さん、それめっちゃわかります！」「○○さん、アイテムナイスです✨」</span></div><div class="row"><b>退出時の挨拶</b><span>例：「この後配信なので、ここで失礼します💦ありがとうございました！！また来ます！」</span></div><div class="row"><b>掲示板への書き込み</b><span>例：「先ほどは配信お邪魔しました✨TwitterのRTと投票やっておきました👍これからもよろしくお願いします！！」</span></div></div>
+</details>
+<details class="mini-toggle">
+<summary><strong>注意事項</strong></summary>
+<div class="mini-body"><div class="row"><b>宣伝</b><span>自分の宣伝は仲良くなってから。</span></div><div class="row"><b>姿勢</b><span>そのライバーさんに興味を示す姿勢を大切にする。</span></div></div>
+</details>
+<details class="mini-toggle">
+<summary><strong>枠回りのターゲット</strong></summary>
+<div class="mini-body"><div class="row"><b>行くべき枠</b><span>同性ライバー、参加コンテスト以外のイベントに参加しているライバー、自分と似たルックス・キャラ・共通点のあるライバー、自分より上位（Top5以内）のライバー、自分の参加コンテストより先に終了するガチイベに参加しているライバー。</span></div><div class="row"><b>ゴール</b><span>ライバーさんではなく、その枠のリスナーさんに来てもらうこと。</span></div></div>
+</details>
+<details class="mini-toggle">
+<summary><strong>実施タイミングとテクニック</strong></summary>
+<div class="mini-body"><div class="row"><b>いつやるべきか</b><span>配信を始める1時間前、最低でも30分前。</span></div><div class="row"><b>時間目安</b><span>1枠につき最低15分。</span></div><div class="row"><b>テクニック</b><span>最初の3分間楽しく会話し、その後一度コメントを控え、数分後に再登場することで印象を残す。</span></div></div>
+</details>
+<details class="mini-toggle">
+<summary><strong>仲良くなったかどうかの指標</strong></summary>
+<div class="mini-body"><div class="row"><b>定義</b><span>Aさんの配信にBさんも、その枠のリスナーさんも参加すること。</span></div><div class="row"><b>循環</b><span>自分のリスナーさんに紹介して、そのリスナーさんが他の枠に行き、また自分の枠に返ってくる関係が構築できているか。</span></div></div>
+</details>
+<details class="mini-toggle">
+<summary><strong>枠回り先に選ばれた場合と関係維持</strong></summary>
+<div class="mini-body"><div class="row"><b>枠回り先に選ばれた場合</b><span>自分がどう見られたいかに基づいて選ぶ。例：新人さんが来たら、機能を教えてあげて実際に投げてもらってみる。</span></div><div class="row"><b>仲良しライバーとの関係維持</b><span>イベント中に共通リスナーが別のライバーへ多く課金している場合、新規リスナーの獲得を継続することが重要。</span></div></div>
+</details>
+<details class="mini-toggle">
+<summary><strong>リスナーのタイプ別対応</strong></summary>
+<div class="mini-body"><div class="row"><b>宴会型</b><span>面白さやノリを重視するリスナーには、面白そうなコメントや企画を提案する。</span></div><div class="row"><b>応援型</b><span>ライバーと仲良くなり、他のリスナーにも紹介してもらう。</span></div></div>
+</details>
+</div>
+</details>
+<p class="footer">作成日：2026-06-19 / 1ファイル完結HTML / POP版 v6</p>
+</main>
+<script>
+// スマホでsummaryを押したとき、開いたセクションが画面上部に来やすいように補助
+for (const d of document.querySelectorAll('.section-toggle')) {
+  d.addEventListener('toggle', () => {
+    if (d.open) setTimeout(() => d.scrollIntoView({block:'start', behavior:'smooth'}), 80);
+  });
+}
+</script>
+</body>
+</html>
